@@ -2,28 +2,34 @@ package model;
 
 import types.Task;
 
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Random;
+import java.util.concurrent.RunnableFuture;
+
 /**
  * Created by hliu on 5/24/2016.
  */
-public class Calculate {
-    private final int data1;
-    private final int data2;
-    public Calculate(Task task){
-        data1=task.getData1();
-        data2=task.getData2();
+public class Calculate implements Runnable{
+    Random ran=new Random();
+    Task task =new Task("empty", ran.nextInt(1000000000),ran.nextInt(1000000000));
+    private static Queue<Task> queue=new LinkedList<Task>();
+
+    public Calculate(){
     }
-    public void doTheCalculation(){
+    @Override
+    public void run(){
         for(int i=0;i<100;++i){
-            int tmp=data1*data2;
+            int tmp=task.getData1()*task.getData2();
         }
         for(int i=0;i<100;++i){
-            int tmp=data1*data2;
+            int tmp=task.getData1()*task.getData2();
         }
         for(int i=0;i<100;++i){
-            int tmp=data1*data2;
+            int tmp=task.getData1()*task.getData2();
         }
         for(int i=0;i<100;++i){
-            int tmp=data1*data2;
+            int tmp=task.getData1()*task.getData2();
         }//learn how to rewrite this part with enum
     }
 }

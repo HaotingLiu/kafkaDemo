@@ -1,17 +1,22 @@
 package model;
 
+import types.Task;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * Created by hliu on 5/24/2016.
  */
 public class directAccess {
-    public void getUrl(String url) throws IOException {
-        URL oracle = new URL("http://www.amadeus.com/");
+    private static Queue<Task> queue=new LinkedList<Task>();
+    public void getUrl(Task task) throws IOException {
+        URL oracle = new URL(task.getType());
         URLConnection yc = oracle.openConnection();
         BufferedReader in = null;
         try {

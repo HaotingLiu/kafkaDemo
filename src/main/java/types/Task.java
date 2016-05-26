@@ -19,4 +19,8 @@ public class Task {
     public int getData2(){
         return data2;
     }
+    public String getType(){
+        String copy=type;
+        return copy;
+    }
 }
