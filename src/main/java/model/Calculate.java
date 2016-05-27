@@ -10,7 +10,7 @@ import java.util.concurrent.RunnableFuture;
 /**
  * Created by hliu on 5/24/2016.
  */
-public class Calculate implements Runnable{
+public class Calculate implements Runnable, QueueClass{
     Random ran=new Random();
     Task task =new Task("empty", ran.nextInt(1000000000),ran.nextInt(1000000000));
     private static Queue<Task> queue=new LinkedList<Task>();
@@ -31,5 +31,10 @@ public class Calculate implements Runnable{
         for(int i=0;i<100;++i){
             int tmp=task.getData1()*task.getData2();
         }//learn how to rewrite this part with enum
+    }
+
+    @Override
+    public void enQueue(Task t) {
+        queue.add(t);
     }
 }

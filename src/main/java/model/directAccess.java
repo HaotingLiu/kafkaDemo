@@ -13,7 +13,7 @@ import java.util.Queue;
 /**
  * Created by hliu on 5/24/2016.
  */
-public class directAccess {
+public class directAccess implements Runnable, QueueClass{
     private static Queue<Task> queue=new LinkedList<Task>();
     public void getUrl(Task task) throws IOException {
         URL oracle = new URL(task.getType());
@@ -30,5 +30,14 @@ public class directAccess {
         while ((inputLine = in.readLine()) != null)
             System.out.println(inputLine);
         in.close();
+    }
+    @Override
+    public void run(){
+
+    }
+
+    @Override
+    public void enQueue(Task t) {
+        queue.add(t);
     }
 }

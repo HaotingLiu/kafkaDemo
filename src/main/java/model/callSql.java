@@ -9,15 +9,14 @@ import types.Task;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Created by hliu on 5/24/2016.
  */
 @SpringBootApplication
-public class callSql implements Runnable {
+public class callSql implements Runnable, QueueClass{
+    private Queue<Task> queue=  new LinkedList<Task>();
     public static void findTask(int id){
         SpringApplication.run(callSql.class);
         for(int i=0;i<10000;++i){
@@ -28,6 +27,12 @@ public class callSql implements Runnable {
     @Override
     public void run() {
         findTask(ran.nextInt());
+    }
+
+    @Override
+    public void enQueue(Task t) {
+
+        queue.add(t);
     }
 }
 @Entity
