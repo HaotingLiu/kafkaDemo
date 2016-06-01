@@ -14,12 +14,10 @@ import java.util.concurrent.Executors;
  */
 public class SI {
     private final int nodeNum=20;
-    List<Task> list=new ArrayList<Task>();
     QueueClass calObject=new Calculate();
-    QueueClass sqlObject=new callSql();
+    //QueueClass sqlObject=new callSql();
     QueueClass dirObject=new directAccess();
-    public SI(List<Task> l){
-        list=l;
+    public SI(){
     }
     public void distribute(){
         //这里加入线程池。然后扔进线程池。
@@ -27,12 +25,12 @@ public class SI {
         ExecutorService pool = Executors.newFixedThreadPool(6);
         for(int i=100;i>=0;--i){
             Runnable taskc=new Calculate();
-            Runnable tasks=new callSql();
+           // Runnable tasks=new callSql();
             Runnable taskd=new directAccess();
-            Runnable q=new EnQueue();
+            Runnable q=new EnQueue(calObject, dirObject, calObject);
             pool.execute(q);
             pool.execute(taskc);
-            pool.execute(tasks);
+            //pool.execute(tasks);
             pool.execute(taskd);
         }
 

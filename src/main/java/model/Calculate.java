@@ -34,6 +34,7 @@ public class Calculate implements Runnable, QueueClass {
                 for (int i = 0; i < 100; ++i) {
                     int tmp = task.getData1() * task.getData2();
                 }//learn how to rewrite this part with enum
+                System.out.print("the size of cal queue"+ queue.size()+"\n");
             }
         }
     }

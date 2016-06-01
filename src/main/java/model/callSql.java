@@ -14,9 +14,9 @@ import java.util.*;
 /**
  * Created by hliu on 5/24/2016.
  */
-@SpringBootApplication
+/*@SpringBootApplication
 public class callSql implements Runnable, QueueClass{
-    private Queue<Task> queue=  new LinkedList<Task>();
+*//*    private Queue<Task> queue=  new LinkedList<Task>();
     public static void findTask(int id){
         SpringApplication.run(callSql.class);
         for(int i=0;i<10000;++i){
@@ -33,7 +33,7 @@ public class callSql implements Runnable, QueueClass{
     public void enQueue(Task t) {
 
         queue.add(t);
-    }
+    }*//*
 }
 @Entity
 class inventoryAir{
@@ -47,7 +47,7 @@ class inventoryAir{
         this.arrival=c;
         this.availabiliy=d;
     }
-}
+}*/
 
 
 
