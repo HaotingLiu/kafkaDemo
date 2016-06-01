@@ -21,14 +21,21 @@ public class SI {
     public SI(List<Task> l){
         list=l;
     }
-    public void enQueue(){
-        for(int i)
-    }//更改方向：应该同时生成任务并分配任务
-    //更改方法：定时生成任务，使用静态工厂函数生成。并且同时分配任务
     public void distribute(){
         //这里加入线程池。然后扔进线程池。
 
         ExecutorService pool = Executors.newFixedThreadPool(6);
+        for(int i=100;i>=0;--i){
+            Runnable taskc=new Calculate();
+            Runnable tasks=new callSql();
+            Runnable taskd=new directAccess();
+            Runnable q=new EnQueue();
+            pool.execute(q);
+            pool.execute(taskc);
+            pool.execute(tasks);
+            pool.execute(taskd);
+        }
+
 
     }
 }

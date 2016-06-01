@@ -9,28 +9,33 @@ import java.util.concurrent.RunnableFuture;
 
 /**
  * Created by hliu on 5/24/2016.
+ * finished
  */
-public class Calculate implements Runnable, QueueClass{
-    Random ran=new Random();
-    Task task =new Task("empty", ran.nextInt(1000000000),ran.nextInt(1000000000));
-    private static Queue<Task> queue=new LinkedList<Task>();
+public class Calculate implements Runnable, QueueClass {
+    private static Queue<Task> queue = new LinkedList<Task>();
 
-    public Calculate(){
+    public Calculate() {
     }
+
     @Override
-    public void run(){
-        for(int i=0;i<100;++i){
-            int tmp=task.getData1()*task.getData2();
+    public void run() {
+        while (true) {
+            if (!queue.isEmpty()) {
+                Task task = queue.poll();
+                for (int i = 0; i < 100; ++i) {
+                    int tmp = task.getData1() * task.getData2();
+                }
+                for (int i = 0; i < 100; ++i) {
+                    int tmp = task.getData1() * task.getData2();
+                }
+                for (int i = 0; i < 100; ++i) {
+                    int tmp = task.getData1() * task.getData2();
+                }
+                for (int i = 0; i < 100; ++i) {
+                    int tmp = task.getData1() * task.getData2();
+                }//learn how to rewrite this part with enum
+            }
         }
-        for(int i=0;i<100;++i){
-            int tmp=task.getData1()*task.getData2();
-        }
-        for(int i=0;i<100;++i){
-            int tmp=task.getData1()*task.getData2();
-        }
-        for(int i=0;i<100;++i){
-            int tmp=task.getData1()*task.getData2();
-        }//learn how to rewrite this part with enum
     }
 
     @Override

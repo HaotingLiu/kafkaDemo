@@ -1,6 +1,7 @@
 package model;
 
 import types.Task;
+import types.TaskFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -33,7 +34,16 @@ public class directAccess implements Runnable, QueueClass{
     }
     @Override
     public void run(){
-
+        while(true){
+            if(!queue.isEmpty()){
+                try {
+                    getUrl(queue.poll());
+                } catch (IOException e) {
+                    System.out.print("direct access fail");
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     @Override
